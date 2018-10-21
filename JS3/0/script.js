@@ -26,10 +26,29 @@ console.log(isPal('Вася')); //false
 console.log(isPal('12321')); //true
 console.log(isPal('123212')); //false
 //3
-function anClean(arr){
-
+function anClean(arr){	
+	for (var i = 0; i < arr.length; i++) {
+		for (var j = i+1; j < arr.length; j++) {
+			if(translateAn(arr[i]) == translateAn(arr[j])){
+				arr.splice(j,1);
+				j--;
+			}
+		}
+	}
+	return arr;
+}
+function translateAn(str){	
+	str = str.toLowerCase();
+	str = str.split('');
+	str = str.sort(function(a, c){
+		return a > c;
+	})
+	str = str.join('');
+	return str;
 }
 console.log("//3");
+var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', 'костер', 'сектор'];
+console.log(anClean(arr));
 //4
 function f4(){
 	var arr = [ 'rrrA', 'toboR', 'ekiL', 'dooG', 'esoR' ];
