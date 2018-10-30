@@ -92,3 +92,4 @@ function divide(str){
 	return str;
 }
 console.log(divide('12345678'));
+// numbers should divide by 3 characters so the result should be  '12 345 678' not '1 23 45 678'
