@@ -26,10 +26,30 @@ console.log(isPal('Вася')); //false
 console.log(isPal('12321')); //true
 console.log(isPal('123212')); //false
 //3
-function anClean(arr){
-
+function anClean(arr){	
+	for (var i = 0; i < arr.length; i++) {
+		for (var j = i+1; j < arr.length; j++) {
+			if(translateAn(arr[i]) == translateAn(arr[j])){
+				arr.splice(j,1);
+				j--;
+			}
+		}
+	}
+	return arr;
+}
+function translateAn(str){	
+		str = str.toLowerCase();
+		str = str.split('');
+		str = str.sort(function(a, c){
+			return a > c;
+		})
+		str = str.join('');
+	return str;
 }
 console.log("//3");
+var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', 'костер', 'сектор'];
+console.log(anClean(arr));
+
 //4
 function f4(){
 	var arr = [ 'rrrA', 'toboR', 'ekiL', 'dooG', 'esoR' ];
@@ -39,8 +59,8 @@ function f4(){
 	arr.reverse();
 	return arr.join("");
 }
-console.log("//4");
-console.log(f4());
+// console.log("//4");
+// console.log(f4());
 //5
 function sumInt(){
 	var sum = 0;
@@ -58,11 +78,11 @@ function sumEven(){
 	}
 	return sum;
 }
-console.log("//5");
-console.log("sumInt: "+sumInt());
-console.log("sumEven: "+sumEven());
-//6
-console.log("//6");
+// console.log("//5");
+// console.log("sumInt: "+sumInt());
+// console.log("sumEven: "+sumEven());
+// //6
+// console.log("//6");
 function callMe(num1, num2, num3){
 	if(typeof num1 !== "number" || typeof num2 !== "number" || typeof num3 !== "number"){
 		console.error("Wrong arguments");
@@ -72,8 +92,8 @@ function callMe(num1, num2, num3){
 	console.log("sum: "+sum);
 	return sum;
 }
-callMe(5, 5, 10);
-callMe(1, "2", 6);
+// callMe(5, 5, 10);
+// callMe(1, "2", 6);
 //7
 function callMeAgain(arr){
 	arr = arr.sort(function(a, c){
@@ -81,8 +101,8 @@ function callMeAgain(arr){
 	});
 	return arr;
 }
-console.log("//7");
-console.log(callMeAgain(["e", "z", "a", "c", "n", "ac"]));
+// console.log("//7");
+// console.log(callMeAgain(["e", "z", "a", "c", "n", "ac"]));
 //8
 function f8(){
 	var arr = [
@@ -98,8 +118,8 @@ function f8(){
 	})
 	return arr;
 }
-console.log("//8");
-console.log(f8());
+// console.log("//8");
+// console.log(f8());
 //9
 function f9(){
 	var arr = [
@@ -128,8 +148,8 @@ function f9(){
 	})
 	return arr;
 }
-console.log("//9");
-console.log(f9());
+// console.log("//9");
+// console.log(f9());
 //11
 function f11(arr){
 	var middle = Math.floor(arr.length/2);
@@ -140,4 +160,4 @@ function f11(arr){
 	}
 	return str;
 }
-console.log(f11(['1', '2', '3', '4', '5', '6']));
+//console.log(f11(['1', '2', '3', '4', '5', '6']));
