@@ -46,6 +46,7 @@ console.log("//7");
 console.log("Is 19 prime? - "+isPrime(19));
 //8
 console.log("//8");
+// why don't use here isPrime inside?
 function returnPrimes(n){
 	var primes = [];
 	for (var i = n; i > 1; i--) {
@@ -74,6 +75,7 @@ console.log(randomArray());
 console.log("//10");
 var date = new Date();
 console.log(date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate());
+// you should add +1 to the month
 //11
 console.log("//11");
 var date = new Date("10/11/2009"),
