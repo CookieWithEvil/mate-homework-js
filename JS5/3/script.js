@@ -49,14 +49,8 @@ console.log("//8");
 function returnPrimes(n){
 	var primes = [];
 	for (var i = n; i > 1; i--) {
-		for (var j = i-1; j > 1; j--) {
-			if(i % j === 0) break;
-			else if(j-1 == 1 && i % j !== 0){
-				primes.push(i);
-			}
-		}
+		if(isPrime(i)) primes.push(i);
 	}
-	primes.push(2);
 	return primes;
 }
 console.log("primes: "+returnPrimes(1000));
@@ -76,7 +70,7 @@ var date = new Date();
 console.log(date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate());
 //11
 console.log("//11");
-var date = new Date("10/11/2009"),
+var date = new Date(),
     locale = "uk-UA",
     month = date.toLocaleString(locale, { month: "long" });
     console.log(month);
