@@ -67,7 +67,7 @@ console.log(randomArray());
 //10
 console.log("//10");
 var date = new Date();
-console.log(date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate());
+console.log(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
 //11
 console.log("//11");
 var date = new Date(),

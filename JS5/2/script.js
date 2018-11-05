@@ -84,7 +84,7 @@ console.log("//13");
 function divide(str){
 	str = str.split("");
 	for (var i = 1; i < str.length; i++) {
-		if(i % 3 === 0){
+		if(i===3 || (i> 4 &&(i-1) % 3 === 0)){
 			str.splice(str.length-i, 0, " ");
 		}
 	}
