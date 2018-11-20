@@ -103,9 +103,10 @@ rabbit.__proto__.test();// chrome
 Rabbit.prototype.test();// ie9+ & chrome
 Object.getPrototypeOf(rabbit).test();// ie9+ & chrome
 //6
+console.log("//6");
 function Hamster() {  
 	this.food = [];
-	this.found = function(something) {
+	Hamster.prototype.found = function(something) {
 	  this.food.push(something);
 	};
 }
@@ -119,32 +120,40 @@ speedy.found("орех");
 console.log(speedy.food.length); // 2
 console.log(lazy.food.length);   // 2 (!??)
 //7
-function Person(){
-	this.legs = 2;
-	this.arms = 2;
-	this.canWalk = true;
+console.log("//7");
+class Person{
+	constructor(legs, arms, canWalk){
+		this.legs = legs;
+		this.arms = arms;
+		this.canWalk = canWalk;
+	}
 }
-function Programer(){
-	
+class Programer extends Person{
+	constructor(legs, arms, canWalk, language){
+		super(legs, arms, canWalk);
+		this.language = language;
+	}
 }
-
-Programer.prototype = Object.create(Person.prototype);
-Programer.prototype.constructor = Programer;
+var J = new Programer(2,2,true,"js");
+var C = new Programer(1,1,false,"c++");
+console.log(J);
+console.log(C);
 //8
+console.log("//8")
 function Adder(startingValue){
 	this.value = startingValue;
-	this.addInput = function(){
-		var res = prompt("Give a number", 1);
+	Adder.prototype.addInput = function(){
+		var res = prompt("Give a number", 5);
 		this.value += +res;
 	}
-	this.showValue = function(){
-		alert(this.value);
+	Adder.prototype.showValue = function(){
+		console.log(this.value);
 	}
 }
 var adder = new Adder(1); // начальное значение 1
-// adder.addInput(); // прибавит ввод prompt к текущему значению2
-// adder.addInput(); // прибавит ввод prompt к текущему значению3
-// adder.showValue();
+adder.addInput(); // прибавит ввод prompt к текущему значению2
+adder.addInput(); // прибавит ввод prompt к текущему значению3
+adder.showValue();
 //9
 console.log("//9")
 function sum(num1) {
