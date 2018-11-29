@@ -51,7 +51,7 @@ function postNewUser(url){
     }
   }
   let id = people.users.length;
-  xhr.send(JSON.stringify({ "id": ++id, "name": people.users[id]["name"], "lastName": people.users[id]["lastName"],"phone":people.users[id]["phone"],"agree":people.users[id]["agree"]}));
+  xhr.send(JSON.stringify({ "id": id, "name": people.users[id]["name"], "lastName": people.users[id]["lastName"],"phone":people.users[id]["phone"],"agree":people.users[id]["agree"]}));
 }
 
 function getUsers(url){
